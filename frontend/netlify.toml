@@ -10,6 +10,13 @@
   SECRETS_SCAN_OMIT_KEYS = "VITE_API_URL"
   SECRETS_SCAN_ENABLED = "false"
 
+# Netlify API proxy (proxies all /api/* requests directly to Render backend)
+[[redirects]]
+  from = "/api/*"
+  to = "https://bru-state.onrender.com/api/:splat"
+  status = 200
+  force = true
+
 # SPA client-side routing fallback (for React Router deep links)
 [[redirects]]
   from = "/*"
