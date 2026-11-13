@@ -6,12 +6,20 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from app.core.config import settings
 
 # Engine configuration supporting both SQLite and PostgreSQL
+raw_db_url = settings.DATABASE_URL
+if raw_db_url:
+    clean_url = raw_db_url.strip().strip("'\"")
+    for prefix in ("DATABASE_URL=", "DIRECT_URL="):
+        if clean_url.startswith(prefix):
+            clean_url = clean_url.split(prefix, 1)[1].strip().strip("'\"")
+    raw_db_url = clean_url
+
 connect_args = {}
-if settings.DATABASE_URL.startswith("sqlite"):
+if raw_db_url.startswith("sqlite"):
     connect_args = {"check_same_thread": False}
 
 engine = create_engine(
-    settings.DATABASE_URL,
+    raw_db_url,
     connect_args=connect_args,
     echo=False,
     future=True,

@@ -64,6 +64,17 @@ class Settings(BaseSettings):
     PUBLIC_BASE_URL: Optional[str] = None
     CSP_EXTRA: str = ""
 
+    @field_validator("DATABASE_URL", "DIRECT_URL", mode="before")
+    @classmethod
+    def clean_db_urls(cls, v: Union[str, None]) -> Optional[str]:
+        if not v:
+            return v
+        clean = v.strip().strip("'\"")
+        for prefix in ("DATABASE_URL=", "DIRECT_URL="):
+            if clean.startswith(prefix):
+                clean = clean.split(prefix, 1)[1].strip().strip("'\"")
+        return clean
+
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def assemble_cors_origins(cls, v: Union[str, List[str], None]) -> Optional[List[str]]:

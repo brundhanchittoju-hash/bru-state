@@ -15,8 +15,14 @@ from app.models import Base
 config = context.config
 
 # Set sqlalchemy.url from our settings (prefers DIRECT_URL for migrations if configured)
-migration_db_url = getattr(settings, "DIRECT_URL", None) or settings.DATABASE_URL
-config.set_main_option("sqlalchemy.url", migration_db_url)
+raw_migration_url = getattr(settings, "DIRECT_URL", None) or settings.DATABASE_URL
+if raw_migration_url:
+    clean_url = raw_migration_url.strip().strip("'\"")
+    for prefix in ("DATABASE_URL=", "DIRECT_URL="):
+        if clean_url.startswith(prefix):
+            clean_url = clean_url.split(prefix, 1)[1].strip().strip("'\"")
+    raw_migration_url = clean_url
+config.set_main_option("sqlalchemy.url", raw_migration_url)
 
 target_metadata = Base.metadata
 
