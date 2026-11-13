@@ -1,0 +1,766 @@
+{
+  "Administrator": {
+    "login": true,
+    "results": [
+      [
+        "Dashboard stats",
+        200,
+        2878.1,
+        null
+      ],
+      [
+        "Dashboard priority queue",
+        200,
+        1802.2,
+        null
+      ],
+      [
+        "Dashboard calendar",
+        200,
+        1411.4,
+        null
+      ],
+      [
+        "Dashboard activity",
+        200,
+        559.2,
+        null
+      ],
+      [
+        "Audit Cases list",
+        200,
+        3052.1,
+        null
+      ],
+      [
+        "Audit Cases detail",
+        200,
+        1107.8,
+        null
+      ],
+      [
+        "Documents list",
+        200,
+        2488.5,
+        null
+      ],
+      [
+        "Documents detail/viewer",
+        200,
+        1292.0,
+        null
+      ],
+      [
+        "Verification summary",
+        200,
+        3618.9,
+        null
+      ],
+      [
+        "Verification case findings",
+        200,
+        616.3,
+        null
+      ],
+      [
+        "Verification rule runs",
+        200,
+        682.0,
+        null
+      ],
+      [
+        "Findings list",
+        200,
+        4785.8,
+        null
+      ],
+      [
+        "Findings summary",
+        404,
+        576.6,
+        "{\"detail\":\"Finding not found.\"}"
+      ],
+      [
+        "Finding evidence detail",
+        200,
+        2086.3,
+        null
+      ],
+      [
+        "Reports list",
+        200,
+        3499.5,
+        null
+      ],
+      [
+        "Analytics (default)",
+        200,
+        7922.2,
+        null
+      ],
+      [
+        "Analytics (FY 2024-25)",
+        200,
+        7304.8,
+        null
+      ],
+      [
+        "Analytics (FY 2023-24)",
+        200,
+        7200.8,
+        null
+      ],
+      [
+        "Analytics (District Mysuru)",
+        200,
+        7374.9,
+        null
+      ],
+      [
+        "Analytics (FY+District)",
+        200,
+        6916.4,
+        null
+      ],
+      [
+        "Vendors list",
+        200,
+        10249.8,
+        null
+      ],
+      [
+        "Vendor detail dossier",
+        200,
+        1460.9,
+        null
+      ],
+      [
+        "Universal Search",
+        200,
+        1689.8,
+        null
+      ],
+      [
+        "Users list",
+        200,
+        1922.2,
+        null
+      ],
+      [
+        "User Roles list",
+        200,
+        556.5,
+        null
+      ],
+      [
+        "Departments list",
+        200,
+        752.0,
+        null
+      ],
+      [
+        "Settings list",
+        200,
+        598.0,
+        null
+      ],
+      [
+        "Settings holidays",
+        200,
+        601.6,
+        null
+      ],
+      [
+        "Settings rules",
+        405,
+        2.0,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings risk-weights",
+        405,
+        2.1,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings checklists",
+        405,
+        1.9,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ]
+    ]
+  },
+  "Audit Officer": {
+    "login": true,
+    "results": [
+      [
+        "Dashboard stats",
+        200,
+        3499.3,
+        null
+      ],
+      [
+        "Dashboard priority queue",
+        200,
+        1944.5,
+        null
+      ],
+      [
+        "Dashboard calendar",
+        200,
+        1532.0,
+        null
+      ],
+      [
+        "Dashboard activity",
+        200,
+        590.0,
+        null
+      ],
+      [
+        "Audit Cases list",
+        200,
+        3387.0,
+        null
+      ],
+      [
+        "Audit Cases detail",
+        200,
+        1269.4,
+        null
+      ],
+      [
+        "Documents list",
+        200,
+        2198.3,
+        null
+      ],
+      [
+        "Documents detail/viewer",
+        200,
+        1160.9,
+        null
+      ],
+      [
+        "Verification summary",
+        200,
+        3741.6,
+        null
+      ],
+      [
+        "Verification case findings",
+        200,
+        618.0,
+        null
+      ],
+      [
+        "Verification rule runs",
+        200,
+        691.1,
+        null
+      ],
+      [
+        "Findings list",
+        200,
+        5341.4,
+        null
+      ],
+      [
+        "Findings summary",
+        404,
+        654.3,
+        "{\"detail\":\"Finding not found.\"}"
+      ],
+      [
+        "Finding evidence detail",
+        200,
+        2320.8,
+        null
+      ],
+      [
+        "Reports list",
+        200,
+        3715.0,
+        null
+      ],
+      [
+        "Analytics (default)",
+        200,
+        8182.1,
+        null
+      ],
+      [
+        "Analytics (FY 2024-25)",
+        200,
+        7127.7,
+        null
+      ],
+      [
+        "Analytics (FY 2023-24)",
+        200,
+        7134.3,
+        null
+      ],
+      [
+        "Analytics (District Mysuru)",
+        200,
+        7102.1,
+        null
+      ],
+      [
+        "Analytics (FY+District)",
+        200,
+        7233.0,
+        null
+      ],
+      [
+        "Vendors list",
+        200,
+        9956.8,
+        null
+      ],
+      [
+        "Vendor detail dossier",
+        200,
+        1271.4,
+        null
+      ],
+      [
+        "Universal Search",
+        200,
+        1413.8,
+        null
+      ],
+      [
+        "Users list",
+        403,
+        566.0,
+        "{\"detail\":\"Access forbidden: role 'audit_officer' lacks required permission\"}"
+      ],
+      [
+        "User Roles list",
+        200,
+        562.4,
+        null
+      ],
+      [
+        "Departments list",
+        200,
+        638.8,
+        null
+      ],
+      [
+        "Settings list",
+        200,
+        564.9,
+        null
+      ],
+      [
+        "Settings holidays",
+        200,
+        583.5,
+        null
+      ],
+      [
+        "Settings rules",
+        405,
+        1.5,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings risk-weights",
+        405,
+        1.1,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings checklists",
+        405,
+        1.5,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ]
+    ]
+  },
+  "Senior Auditor": {
+    "login": true,
+    "results": [
+      [
+        "Dashboard stats",
+        200,
+        2866.9,
+        null
+      ],
+      [
+        "Dashboard priority queue",
+        200,
+        1831.4,
+        null
+      ],
+      [
+        "Dashboard calendar",
+        200,
+        1393.9,
+        null
+      ],
+      [
+        "Dashboard activity",
+        200,
+        558.0,
+        null
+      ],
+      [
+        "Audit Cases list",
+        200,
+        3088.2,
+        null
+      ],
+      [
+        "Audit Cases detail",
+        200,
+        1119.9,
+        null
+      ],
+      [
+        "Documents list",
+        200,
+        2237.9,
+        null
+      ],
+      [
+        "Documents detail/viewer",
+        200,
+        1325.3,
+        null
+      ],
+      [
+        "Verification summary",
+        200,
+        3564.3,
+        null
+      ],
+      [
+        "Verification case findings",
+        200,
+        550.5,
+        null
+      ],
+      [
+        "Verification rule runs",
+        200,
+        639.0,
+        null
+      ],
+      [
+        "Findings list",
+        200,
+        4589.6,
+        null
+      ],
+      [
+        "Findings summary",
+        404,
+        578.9,
+        "{\"detail\":\"Finding not found.\"}"
+      ],
+      [
+        "Finding evidence detail",
+        200,
+        2000.4,
+        null
+      ],
+      [
+        "Reports list",
+        200,
+        3478.7,
+        null
+      ],
+      [
+        "Analytics (default)",
+        200,
+        8141.8,
+        null
+      ],
+      [
+        "Analytics (FY 2024-25)",
+        200,
+        7184.9,
+        null
+      ],
+      [
+        "Analytics (FY 2023-24)",
+        200,
+        7304.3,
+        null
+      ],
+      [
+        "Analytics (District Mysuru)",
+        200,
+        7207.1,
+        null
+      ],
+      [
+        "Analytics (FY+District)",
+        200,
+        7221.0,
+        null
+      ],
+      [
+        "Vendors list",
+        200,
+        10047.1,
+        null
+      ],
+      [
+        "Vendor detail dossier",
+        200,
+        1252.1,
+        null
+      ],
+      [
+        "Universal Search",
+        200,
+        1432.3,
+        null
+      ],
+      [
+        "Users list",
+        403,
+        572.5,
+        "{\"detail\":\"Access forbidden: role 'senior_auditor' lacks required permission\"}"
+      ],
+      [
+        "User Roles list",
+        200,
+        554.5,
+        null
+      ],
+      [
+        "Departments list",
+        200,
+        645.1,
+        null
+      ],
+      [
+        "Settings list",
+        200,
+        563.4,
+        null
+      ],
+      [
+        "Settings holidays",
+        200,
+        569.3,
+        null
+      ],
+      [
+        "Settings rules",
+        405,
+        2.0,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings risk-weights",
+        405,
+        1.8,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings checklists",
+        405,
+        3.0,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ]
+    ]
+  },
+  "Auditor": {
+    "login": true,
+    "results": [
+      [
+        "Dashboard stats",
+        200,
+        2863.8,
+        null
+      ],
+      [
+        "Dashboard priority queue",
+        200,
+        1814.8,
+        null
+      ],
+      [
+        "Dashboard calendar",
+        200,
+        1414.5,
+        null
+      ],
+      [
+        "Dashboard activity",
+        200,
+        555.6,
+        null
+      ],
+      [
+        "Audit Cases list",
+        200,
+        2908.8,
+        null
+      ],
+      [
+        "Audit Cases detail",
+        200,
+        1109.8,
+        null
+      ],
+      [
+        "Documents list",
+        200,
+        2232.4,
+        null
+      ],
+      [
+        "Documents detail/viewer",
+        200,
+        1271.4,
+        null
+      ],
+      [
+        "Verification summary",
+        200,
+        3453.5,
+        null
+      ],
+      [
+        "Verification case findings",
+        200,
+        552.0,
+        null
+      ],
+      [
+        "Verification rule runs",
+        200,
+        629.7,
+        null
+      ],
+      [
+        "Findings list",
+        200,
+        4717.5,
+        null
+      ],
+      [
+        "Findings summary",
+        404,
+        568.1,
+        "{\"detail\":\"Finding not found.\"}"
+      ],
+      [
+        "Finding evidence detail",
+        200,
+        2073.2,
+        null
+      ],
+      [
+        "Reports list",
+        200,
+        3311.0,
+        null
+      ],
+      [
+        "Analytics (default)",
+        200,
+        8018.6,
+        null
+      ],
+      [
+        "Analytics (FY 2024-25)",
+        200,
+        7053.7,
+        null
+      ],
+      [
+        "Analytics (FY 2023-24)",
+        200,
+        7136.7,
+        null
+      ],
+      [
+        "Analytics (District Mysuru)",
+        200,
+        7074.8,
+        null
+      ],
+      [
+        "Analytics (FY+District)",
+        200,
+        7027.5,
+        null
+      ],
+      [
+        "Vendors list",
+        200,
+        9689.8,
+        null
+      ],
+      [
+        "Vendor detail dossier",
+        200,
+        1291.0,
+        null
+      ],
+      [
+        "Universal Search",
+        200,
+        1416.5,
+        null
+      ],
+      [
+        "Users list",
+        403,
+        553.6,
+        "{\"detail\":\"Access forbidden: role 'auditor' lacks required permission\"}"
+      ],
+      [
+        "User Roles list",
+        200,
+        553.7,
+        null
+      ],
+      [
+        "Departments list",
+        200,
+        646.4,
+        null
+      ],
+      [
+        "Settings list",
+        200,
+        552.4,
+        null
+      ],
+      [
+        "Settings holidays",
+        200,
+        605.7,
+        null
+      ],
+      [
+        "Settings rules",
+        405,
+        1.9,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings risk-weights",
+        405,
+        1.8,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ],
+      [
+        "Settings checklists",
+        405,
+        2.2,
+        "{\"detail\":\"Method Not Allowed\"}"
+      ]
+    ]
+  }
+}

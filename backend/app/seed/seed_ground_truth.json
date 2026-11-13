@@ -1,0 +1,176 @@
+{
+  "dataset_metadata": {
+    "project": "Karnataka State Audit Department Demo Platform",
+    "description": "Ground truth catalog of 14 intentional cross-linked statutory audit anomalies across Karnataka districts and schemes",
+    "total_anomalies": 14,
+    "clean_case_benchmark": "CAS-2024-KAL-005"
+  },
+  "anomalies": [
+    {
+      "anomaly_id": 1,
+      "rule_id": "R-001",
+      "name": "Exact Duplicate Payment",
+      "case_number": "CAS-2024-MYS-001",
+      "voucher_number": "VOUCH-2024-094",
+      "vendor": "Cauvery Infra Projects",
+      "expected_amount_at_risk": 185000.0,
+      "severity": "critical",
+      "expected_status": "Confirmed"
+    },
+    {
+      "anomaly_id": 2,
+      "rule_id": "R-002",
+      "name": "Duplicate Invoice Number Across Payments",
+      "case_number": "CAS-2024-MYS-001",
+      "voucher_number": "VOUCH-2024-095",
+      "invoice_number": "INV-2024-781",
+      "vendor": "Chamundi Electricals & Spares",
+      "expected_amount_at_risk": 420000.0,
+      "severity": "high",
+      "expected_status": "Pending Approval"
+    },
+    {
+      "anomaly_id": 3,
+      "rule_id": "R-003",
+      "name": "Amount Mismatch Between Supporting Bill and Payment Voucher",
+      "case_number": "CAS-2024-MYS-001",
+      "voucher_number": "VOUCH-2024-102",
+      "invoice_number": "INV-2024-089",
+      "vendor": "Mysuru Borewell Services",
+      "expected_amount_at_risk": 10000.0,
+      "severity": "high",
+      "expected_status": "Needs Clarification"
+    },
+    {
+      "anomaly_id": 4,
+      "rule_id": "R-004",
+      "name": "Cumulative Payments Exceeding Administrative Sanction",
+      "case_number": "CAS-2024-MYS-001",
+      "sanction_number": "AS-MGNREGA-2024-01",
+      "vendor": "Karnataka Rural Infra Ltd",
+      "expected_amount_at_risk": 240000.0,
+      "severity": "critical",
+      "expected_status": "Escalated"
+    },
+    {
+      "anomaly_id": 5,
+      "rule_id": "R-005",
+      "name": "Bank Debit Without Matching Payment Voucher or Bill",
+      "case_number": "CAS-2024-MYS-001",
+      "voucher_number": "DEBIT-2024-9901",
+      "vendor": "Unknown",
+      "expected_amount_at_risk": 550000.0,
+      "severity": "critical",
+      "expected_status": "Confirmed"
+    },
+    {
+      "anomaly_id": 6,
+      "rule_id": "R-006",
+      "name": "Statutory Tax & GST Validation Slab Variance",
+      "case_number": "CAS-2024-BEL-002",
+      "voucher_number": "VOUCH-2024-201",
+      "invoice_number": "INV-2024-905",
+      "vendor": "Belagavi Stone Crushers & Aggregates",
+      "expected_amount_at_risk": 7000.0,
+      "severity": "high",
+      "expected_status": "Open"
+    },
+    {
+      "anomaly_id": 7,
+      "rule_id": "R-007",
+      "name": "Document Arithmetic & Words-to-Numbers Consistency",
+      "case_number": "CAS-2024-BEL-002",
+      "voucher_number": "VOUCH-2024-205",
+      "invoice_number": "INV-2024-940",
+      "vendor": "Nandi Construction Materials",
+      "expected_amount_at_risk": 14000.0,
+      "severity": "medium",
+      "expected_status": "Open"
+    },
+    {
+      "anomaly_id": 8,
+      "rule_id": "R-008",
+      "name": "Missing Statutory Supporting Documentation",
+      "case_number": "CAS-2024-BEL-002",
+      "voucher_number": "VOUCH-2024-208",
+      "missing_doc_type": "Measurement Book",
+      "expected_amount_at_risk": 0.0,
+      "severity": "high",
+      "expected_status": "Open"
+    },
+    {
+      "anomaly_id": 9,
+      "rule_id": "R-009",
+      "name": "Chronological Date Sequence Violation",
+      "case_number": "CAS-2023-DHA-003",
+      "voucher_number": "VOUCH-2023-305",
+      "invoice_number": "INV-2023-650",
+      "vendor": "Hubballi Cement & Concrete Works",
+      "expected_amount_at_risk": 500000.0,
+      "severity": "medium",
+      "expected_status": "Confirmed"
+    },
+    {
+      "anomaly_id": 10,
+      "rule_id": "R-010",
+      "name": "Voucher Numbering Sequence Gaps and Inversions",
+      "case_number": "CAS-2023-DHA-003",
+      "voucher_number": "VOUCH-2023-311",
+      "expected_amount_at_risk": 0.0,
+      "severity": "medium",
+      "expected_status": "Confirmed"
+    },
+    {
+      "anomaly_id": 11,
+      "rule_id": "R-011",
+      "name": "High Vendor Spend Concentration & Name Aliasing",
+      "case_number": "CAS-2023-DHA-003",
+      "vendor": "Sri Lakshmi Traders",
+      "expected_amount_at_risk": 0.0,
+      "severity": "medium",
+      "expected_status": "Dismissed"
+    },
+    {
+      "anomaly_id": 12,
+      "rule_id": "R-012",
+      "name": "Disbursement Exceeding Statutory Cash Ceiling",
+      "case_number": "CAS-2024-MYS-001",
+      "voucher_number": "VOUCH-2024-118",
+      "vendor": "Sri Manjunatha Logistics & Transport",
+      "expected_amount_at_risk": 45000.0,
+      "severity": "high",
+      "expected_status": "Auto-resolved"
+    },
+    {
+      "anomaly_id": 13,
+      "rule_id": "R-013",
+      "name": "Statistical IQR Outlier Disbursement",
+      "case_number": "CAS-2023-TUM-004",
+      "voucher_number": "VOUCH-2023-408",
+      "vendor": "Madhugiri Water Tech Enterprises",
+      "expected_amount_at_risk": 1250000.0,
+      "severity": "high",
+      "expected_status": "Confirmed"
+    },
+    {
+      "anomaly_id": 14,
+      "rule_id": "R-014",
+      "name": "Split Purchases to Circumvent Statutory Tender Thresholds",
+      "case_number": "CAS-2023-DHA-003",
+      "voucher_number": "VOUCH-2023-320",
+      "vendor": "Hassan Tech Supplies",
+      "expected_amount_at_risk": 1470000.0,
+      "severity": "high",
+      "expected_status": "Confirmed"
+    }
+  ],
+  "clean_case_expectations": {
+    "case_number": "CAS-2024-KAL-005",
+    "scheme": "Swachh Bharat Mission (Gramin)",
+    "district": "Kalaburagi",
+    "max_high_findings": 0,
+    "max_critical_findings": 0,
+    "expected_risk_band": "Low"
+  }
+}
+

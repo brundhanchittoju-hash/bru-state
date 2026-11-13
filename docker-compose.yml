@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: state_audit_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-state_audit_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-state_audit_secret_pass_2024}
+      POSTGRES_DB: ${POSTGRES_DB:-state_audit_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-state_audit_user} -d ${POSTGRES_DB:-state_audit_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

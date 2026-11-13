@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Workspace Canvas — Cool Zinc-Graphite & Vivid Cobalt Indigo */
+    --background: 220 20% 97%; /* #F6F7F9 */
+    --foreground: 222 39% 11%; /* #111827 */
+
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 222 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 39% 11%;
+
+    --primary: 243 58% 50%; /* #4338CA Cobalt Indigo (8.2:1 with white) */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 18% 93%; /* #EBEEF3 */
+    --secondary-foreground: 222 39% 11%;
+
+    --muted: 220 18% 94%; /* #EEF0F4 */
+    --muted-foreground: 218 15% 37%; /* #505A6B (>= 6.6:1 contrast) */
+
+    --accent: 226 100% 96%; /* #EEF2FF */
+    --accent-foreground: 245 55% 42%; /* #3730A3 */
+
+    /* Warm Amber-Orange Signal Accent (for Demo / Flagged Attention) */
+    --signal: 32 95% 36%; /* #B45309 (>= 4.9:1 on light canvas) */
+    --signal-foreground: 0 0% 100%;
+    --signal-surface: 43 96% 94%; /* #FEF3C7 */
+    --signal-border: 38 92% 76%; /* #FCD34D */
+
+    --destructive: 347 77% 44%; /* #C81E42 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 18% 89%; /* #DFE3EA */
+    --input: 220 18% 84%; /* #D0D6E0 */
+    --ring: 243 58% 50%;
+
+    --radius: 0.75rem;
+
+    /* Semantic Risk Variables */
+    --risk-low: #15803D;
+    --risk-medium: #B45309;
+    --risk-high: #C2410C;
+    --risk-critical: #BE123C;
+  }
+
+  .dark {
+    /* Workspace Canvas Dark — Deep Carbon Graphite & Electric Indigo */
+    --background: 222 21% 6%; /* #0D0F14 */
+    --foreground: 220 14% 96%; /* #F3F4F6 */
+
+    --card: 218 23% 10%; /* #141820 */
+    --card-foreground: 220 14% 96%;
+
+    --popover: 219 23% 12%; /* #181D27 */
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 239 84% 64%; /* #5B5FEF */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 21% 15%; /* #1E2430 */
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 220 22% 14%; /* #1C212C */
+    --muted-foreground: 218 12% 68%; /* #A3ACB9 (>= 7.0:1 contrast) */
+
+    --accent: 239 48% 19%; /* Indigo wash */
+    --accent-foreground: 228 96% 80%; /* #B4C2FF */
+
+    --signal: 38 92% 60%; /* #FBBF24 */
+    --signal-foreground: 222 21% 6%;
+    --signal-surface: 35 45% 15%;
+    --signal-border: 35 55% 34%;
+
+    --destructive: 347 77% 54%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 19% 18%; /* #262C38 */
+    --input: 220 19% 22%;
+    --ring: 239 84% 67%;
+
+    --risk-low: #4ADE80;
+    --risk-medium: #FBBF24;
+    --risk-high: #FB923C;
+    --risk-critical: #FB7185;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .canvas-dot-grid {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .dark .canvas-dot-grid {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.09) 1px, transparent 1px);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.45);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

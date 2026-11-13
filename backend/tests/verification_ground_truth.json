@@ -1,0 +1,122 @@
+{
+  "test_case_anomalies": "CAS-2024-MYS-002",
+  "test_case_clean": "CAS-2024-MYS-003",
+  "anomalies": [
+    {
+      "anomaly_id": 1,
+      "rule_id": "R-001",
+      "name": "Exact Duplicate Payment",
+      "expected_amount_at_risk": 185000.0,
+      "severity": "critical",
+      "identifier": "VOUCH-2024-094",
+      "vendor": "Cauvery Infra Projects"
+    },
+    {
+      "anomaly_id": 2,
+      "rule_id": "R-002",
+      "name": "Duplicate Invoice Number Across Payments",
+      "expected_amount_at_risk": 420000.0,
+      "severity": "high",
+      "identifier": "INV-2024-781",
+      "vendor": "Chamundi Electricals & Spares"
+    },
+    {
+      "anomaly_id": 3,
+      "rule_id": "R-003",
+      "name": "Amount Mismatch Between Supporting Bill and Payment Voucher",
+      "expected_amount_at_risk": 35000.0,
+      "severity": "high",
+      "identifier": "VOUCH-2024-102",
+      "vendor": "Mysuru Borewell Services"
+    },
+    {
+      "anomaly_id": 4,
+      "rule_id": "R-004",
+      "name": "Cumulative Payments Exceeding Administrative Sanction",
+      "expected_amount_at_risk": 240000.0,
+      "severity": "critical",
+      "identifier": "AS-MGNREGA-2023-44",
+      "vendor": "Karnataka Rural Infra Ltd"
+    },
+    {
+      "anomaly_id": 5,
+      "rule_id": "R-005",
+      "name": "Bank Debit Without Matching Payment Voucher or Bill",
+      "expected_amount_at_risk": 550000.0,
+      "severity": "critical",
+      "identifier": "DEBIT-2024-9901"
+    },
+    {
+      "anomaly_id": 6,
+      "rule_id": "R-006",
+      "name": "Statutory Tax & GST Validation",
+      "expected_amount_at_risk": 7000.0,
+      "severity": "high",
+      "identifier": "INV-2024-905",
+      "vendor": "Nandi Construction Materials"
+    },
+    {
+      "anomaly_id": 7,
+      "rule_id": "R-007",
+      "name": "Document Arithmetic & Words-to-Numbers Consistency",
+      "expected_amount_at_risk": 14000.0,
+      "severity": "medium",
+      "identifier": "INV-2024-940",
+      "vendor": "Nandi Construction Materials"
+    },
+    {
+      "anomaly_id": 8,
+      "rule_id": "R-008",
+      "name": "Missing Statutory Supporting Documentation",
+      "expected_amount_at_risk": 0.0,
+      "severity": "high",
+      "identifier": "Measurement Book"
+    },
+    {
+      "anomaly_id": 9,
+      "rule_id": "R-009",
+      "name": "Chronological Date Sequence Violation",
+      "expected_amount_at_risk": 500000.0,
+      "severity": "medium",
+      "identifier": "INV-2024-650"
+    },
+    {
+      "anomaly_id": 10,
+      "rule_id": "R-010",
+      "name": "Voucher Numbering Sequence Gaps and Inversions",
+      "expected_amount_at_risk": 0.0,
+      "severity": "medium",
+      "identifier": "VOUCH-2024-111"
+    },
+    {
+      "anomaly_id": 11,
+      "rule_id": "R-011",
+      "name": "High Vendor Spend Concentration",
+      "expected_amount_at_risk": 0.0,
+      "severity": "medium",
+      "identifier": "Karnataka Rural Infra Ltd"
+    },
+    {
+      "anomaly_id": 12,
+      "rule_id": "R-014",
+      "name": "Split Purchases to Circumvent Statutory Tender Thresholds",
+      "expected_amount_at_risk": 1470000.0,
+      "severity": "high",
+      "identifier": "Hassan Tech Supplies"
+    },
+    {
+      "anomaly_id": 13,
+      "rule_id": "R-016",
+      "name": "Unusual Transaction Timing & Fiscal Year-End Rush",
+      "expected_amount_at_risk": 0.0,
+      "severity": "low",
+      "identifier": "VOUCH-2024-140"
+    }
+  ],
+  "clean_case_expectations": {
+    "max_high_findings": 0,
+    "max_critical_findings": 0,
+    "max_risk_score": 29.9,
+    "expected_risk_band": "Low"
+  }
+}

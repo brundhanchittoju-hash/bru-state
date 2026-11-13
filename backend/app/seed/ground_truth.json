@@ -1,0 +1,88 @@
+{
+  "bill_clean.pdf": {
+    "expected_type": "Bill",
+    "key_fields": {
+      "bill_number": "INV-2024-089",
+      "invoice_date": "2024-05-14",
+      "amount": "485000.00",
+      "gstin": "29AABCC1234D1Z7",
+      "pan": "AABCC1234D",
+      "ifsc": "SBIN0001234",
+      "bank_account": "987654321012",
+      "gst_rate": "18"
+    }
+  },
+  "bill_messy.pdf": {
+    "expected_type": "Bill",
+    "key_fields": {
+      "bill_number": "BL/MYS/99",
+      "amount": "245600.00",
+      "ifsc": "KARB0000123",
+      "bank_account": "1234567890123"
+    }
+  },
+  "voucher_001.pdf": {
+    "expected_type": "Voucher",
+    "key_fields": {
+      "voucher_number": "VR-2024-0042",
+      "document_date": "2024-06-22",
+      "amount": "125000.00",
+      "cheque_number": "542109"
+    }
+  },
+  "work_order_001.pdf": {
+    "expected_type": "Work Order",
+    "key_fields": {
+      "work_order_number": "WO/ZP/MYS/2024/77",
+      "document_date": "2024-04-02",
+      "amount": "1450000.00"
+    }
+  },
+  "sanction_order_001.pdf": {
+    "expected_type": "Sanction Order",
+    "key_fields": {
+      "sanction_number": "AS/RDPR/15FC/2024/104",
+      "document_date": "2024-04-10",
+      "amount": "2500000.00"
+    }
+  },
+  "tender_notice_001.pdf": {
+    "expected_type": "Tender",
+    "key_fields": {
+      "tender_number": "NIT/MYS/2024/T-18",
+      "document_date": "2024-01-15",
+      "amount": "1820000.00"
+    }
+  },
+  "measurement_book_001.pdf": {
+    "expected_type": "Measurement Book",
+    "key_fields": {
+      "document_date": "2024-07-18",
+      "amount": "315400.00"
+    }
+  },
+  "completion_cert_001.pdf": {
+    "expected_type": "Completion Certificate",
+    "key_fields": {
+      "amount": "890000.00"
+    }
+  },
+  "utilization_cert_001.pdf": {
+    "expected_type": "Utilization Certificate",
+    "key_fields": {
+      "document_date": "2024-03-31"
+    }
+  },
+  "cash_book_2024.xlsx": {
+    "expected_type": "Cash Book",
+    "is_tabular": true
+  },
+  "ledger_2024.xlsx": {
+    "expected_type": "Ledger",
+    "is_tabular": true
+  },
+  "bank_statement_mysuru.csv": {
+    "expected_type": "Bank Statement",
+    "is_tabular": true
+  }
+}
