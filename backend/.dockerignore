@@ -1,0 +1,42 @@
+# ==============================================================================
+# STATE AUDIT AI — Backend Docker Build Ignore Rules
+# ==============================================================================
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment secrets and credentials (never build into Docker image)
+.env
+.env.*
+!.env.example
+
+# Local storage and databases
+storage/
+*.db
+*.sqlite
+*.sqlite3
+
+# Node modules
+node_modules/
+
+# Git and VCS
+.git/
+.gitignore
+
+# Python caches and test artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+

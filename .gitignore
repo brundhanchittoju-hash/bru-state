@@ -1,21 +1,60 @@
+# Environment variables & secrets (CRITICAL: NEVER COMMIT SECRETS)
 .env
+.env.*
+!.env.example
 **/.env
-**/.env.local
+**/.env.*
+!**/.env.example
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# Python virtual environment
 .venv/
+venv/
+env/
 **/.venv/
-node_modules/
-**/node_modules/
+**/venv/
+**/env/
+
+# Python cache & artifacts
 __pycache__/
 **/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+htmlcov/
+
+# Node & Frontend dependencies/builds
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+frontend/dist/
+build/
+.npm/
+
+# Local databases & storage
 *.db
+*.sqlite
+*.sqlite3
 storage/*
 !storage/.gitkeep
+backend/storage/*
+!backend/storage/.gitkeep
 storage_old/
 temp_thumb/
 **/temp_thumb/
+
+# Scratch & temporary testing files
 scratch/
 scratch_audit_results.json
-dist/
-**/dist/
-.pytest_cache/
-**/.pytest_cache/frontend/.env
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

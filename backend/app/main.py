@@ -121,6 +121,7 @@ def create_app() -> FastAPI:
     app.include_router(public_verify_router, prefix=api_prefix)
     app.include_router(public_verify_router)  # Direct root access /verify/...
     app.include_router(health_router, prefix=api_prefix)
+    app.include_router(health_router)  # Direct root access /health
 
     return app
 
