@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+import re
 from typing import Any, Dict, Optional, Union
 import jwt
 from argon2 import PasswordHasher
@@ -14,6 +15,29 @@ ph = PasswordHasher(
     hash_len=32,
     salt_len=16,
 )
+
+
+def validate_password_policy(password: str) -> None:
+    """
+    Enforces password complexity requirements for production accounts:
+    - Minimum 12 characters in length
+    - At least one uppercase letter (A-Z)
+    - At least one lowercase letter (a-z)
+    - At least one numeric digit (0-9)
+    - At least one special / symbol character (!@#$%^&* etc.)
+
+    Raises ValueError with a specific explanation if the password fails policy.
+    """
+    if not password or len(password) < 12:
+        raise ValueError("Password must be at least 12 characters long.")
+    if not re.search(r"[A-Z]", password):
+        raise ValueError("Password must contain at least one uppercase letter.")
+    if not re.search(r"[a-z]", password):
+        raise ValueError("Password must contain at least one lowercase letter.")
+    if not re.search(r"\d", password):
+        raise ValueError("Password must contain at least one numeric digit.")
+    if not re.search(r"[!@#$%^&*(),.?\":{}|<>[\]\\/'`~_+=;\-]", password):
+        raise ValueError("Password must contain at least one special character (e.g. !@#$%^&*).")
 
 
 def get_password_hash(password: str) -> str:

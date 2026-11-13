@@ -4,7 +4,7 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.core.config import settings
-from app.core.security import get_password_hash, verify_password
+from app.core.security import get_password_hash, validate_password_policy, verify_password
 from app.models.user import Department, Role, User
 from app.schemas.user import UserCreate, UserUpdate
 from app.services.audit_trail import log_activity
@@ -109,6 +109,14 @@ class UserService:
                     detail="Specified department does not exist",
                 )
 
+        try:
+            validate_password_policy(user_in.password)
+        except ValueError as e:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=str(e),
+            )
+
         new_user = User(
             email=clean_email,
             hashed_password=get_password_hash(user_in.password),
@@ -177,6 +185,13 @@ class UserService:
             changes["is_active"] = user.is_active
 
         if user_in.password:
+            try:
+                validate_password_policy(user_in.password)
+            except ValueError as e:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=str(e),
+                )
             user.hashed_password = get_password_hash(user_in.password)
             changes["password_updated"] = True
 
@@ -191,6 +206,46 @@ class UserService:
             actor_id=actor_id,
             actor_name=actor_name,
             payload=changes,
+        )
+        return user
+
+    @staticmethod
+    def set_user_password(
+        db: Session,
+        user_id: str,
+        new_password: str,
+        actor_id: Optional[str] = None,
+        actor_name: str = "System",
+    ) -> User:
+        user = db.query(User).filter(User.id == user_id, User.deleted_at.is_(None)).first()
+        if not user:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="User not found",
+            )
+
+        try:
+            validate_password_policy(new_password)
+        except ValueError as e:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=str(e),
+            )
+
+        user.hashed_password = get_password_hash(new_password)
+        user.failed_login_attempts = 0
+        user.locked_until = None
+        db.commit()
+        db.refresh(user)
+
+        log_activity(
+            db=db,
+            action="user:set_password",
+            entity_type="user",
+            entity_id=user.id,
+            actor_id=actor_id,
+            actor_name=actor_name,
+            payload={"email": user.email, "password_reset": True},
         )
         return user
 

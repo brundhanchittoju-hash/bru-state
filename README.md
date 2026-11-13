@@ -112,18 +112,19 @@ The platform is designed around strict statutory financial auditing standards, *
 
 ---
 
-## Demo Credentials
+## Demo Accounts (Local Development Only)
 
-All demo accounts are pre-seeded in the database:
+> [!NOTE]
+> **Local Development Only**: Demo accounts are provided strictly for local development, interface evaluation, and automated testing when `ENVIRONMENT=development` and `VITE_ENABLE_DEMO_LOGIN=true`. Demo passwords are not published in documentation or shipped in production. In local development, demo accounts are initialized via `python -m app.seed.seed_data`. In production environments, demo logins are disabled, demo accounts must be deactivated using `python -m app.scripts.manage_users deactivate-demo-users`, and administrator accounts are provisioned via `python -m app.scripts.manage_users create-admin <email>`.
 
-| Role | Email | Password | Allowed Permissions |
-| :--- | :--- | :--- | :--- |
-| **Administrator** | `admin@stateaudit.kar.gov.in` | `AdminPassword@2024` | User CRUD, System Settings, Audit Trail, Cases, Dual-Signoff |
-| **Audit Officer** | `officer@stateaudit.kar.gov.in` | `OfficerPassword@2024` | Case Reopen/Sign-off, Maker-Checker Dual-Approval, Cases, Verification |
-| **Senior Auditor** | `senior.auditor@stateaudit.kar.gov.in` | `SeniorPassword@2024` | Maker-Checker Dual-Approval, Bulk Assign, Findings Reopen, Workflow |
-| **Auditor** | `auditor@stateaudit.kar.gov.in` | `AuditorPassword@2024` | Sampling, Vouchers, Documents, Findings Creation & Confirmation |
-| **Field Auditor 1**| `priya.nair@stateaudit.kar.gov.in` | `AuditorPassword@2024` | Gram Panchayat field audit execution, document uploads |
-| **Field Auditor 2**| `kavita.patil@stateaudit.kar.gov.in`| `AuditorPassword@2024` | Taluk Panchayat field audit execution, document uploads |
+| Role | Email | Allowed Permissions |
+| :--- | :--- | :--- |
+| **Administrator** | `admin@stateaudit.kar.gov.in` | User CRUD, System Settings, Audit Trail, Cases, Dual-Signoff |
+| **Audit Officer** | `officer@stateaudit.kar.gov.in` | Case Reopen/Sign-off, Maker-Checker Dual-Approval, Cases, Verification |
+| **Senior Auditor** | `senior.auditor@stateaudit.kar.gov.in` | Maker-Checker Dual-Approval, Bulk Assign, Findings Reopen, Workflow |
+| **Auditor** | `auditor@stateaudit.kar.gov.in` | Sampling, Vouchers, Documents, Findings Creation & Confirmation |
+| **Field Auditor 1**| `priya.nair@stateaudit.kar.gov.in` | Gram Panchayat field audit execution, document uploads |
+| **Field Auditor 2**| `kavita.patil@stateaudit.kar.gov.in`| Taluk Panchayat field audit execution, document uploads |
 
 ### Statutory RBAC Endpoint Permissions Matrix
 
@@ -212,9 +213,7 @@ The platform includes a realistic, pre-seeded Karnataka Panchayati Raj audit env
 
 ### 1. Login & Dashboard Overview
 - Navigate to `http://localhost:5173`.
-- Click the role picker pill or enter Auditor credentials:
-  - Email: `auditor@stateaudit.kar.gov.in`
-  - Password: `AuditorPassword@2024`
+- In local development (`VITE_ENABLE_DEMO_LOGIN=true`), sign in using the quick-login demo pills or your locally seeded credentials (e.g. `auditor@stateaudit.kar.gov.in`).
 - Explore the **Executive Dashboard (`/dashboard`)**:
   - Note the 12 live KPIs computed directly via SQL (zero hardcoding).
   - Open the **Priority Review Queue** drawer on the right to inspect high-exposure findings.
@@ -247,7 +246,7 @@ The platform includes a realistic, pre-seeded Karnataka Panchayati Raj audit env
 - Supply an auditor justification note ($\ge 5$ characters) and submit.
 - Notice the finding automatically transitions to **`Pending Approval`** (maker-checker governance).
 - Attempting to self-approve as Auditor is blocked.
-- Switch users to **Senior Auditor** (`senior.auditor@stateaudit.kar.gov.in` / `SeniorPassword@2024`).
+- Switch users to **Senior Auditor** (`senior.auditor@stateaudit.kar.gov.in`).
 - Open `FND-MYS-001-01` and approve the finding. The status advances to **`Confirmed`** and records dual sign-off.
 
 ### 6. Statutory Report Generation & Public Verification Portal

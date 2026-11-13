@@ -90,4 +90,26 @@ describe("Login Flow Component", () => {
       expect(screen.queryByText("Incorrect email or password")).not.toBeInTheDocument();
     });
   });
+
+  it("shows no demo credentials or buttons when VITE_ENABLE_DEMO_LOGIN is false", () => {
+    const originalEnv = import.meta.env.VITE_ENABLE_DEMO_LOGIN;
+    (import.meta.env as any).VITE_ENABLE_DEMO_LOGIN = "false";
+
+    render(
+      <BrowserRouter>
+        <AuthProvider>
+          <LoginPage />
+        </AuthProvider>
+      </BrowserRouter>
+    );
+
+    expect(screen.queryByText("Quick Login (Demo Accounts)")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Administrator/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Audit Officer/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Senior Auditor/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^Auditor$/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/@stateaudit\.kar\.gov\.in/i)).not.toBeInTheDocument();
+
+    (import.meta.env as any).VITE_ENABLE_DEMO_LOGIN = originalEnv;
+  });
 });

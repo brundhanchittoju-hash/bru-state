@@ -332,7 +332,7 @@ export const UsersPage: React.FC = () => {
               <label className="text-xs font-semibold">Initial Password</label>
               <Input
                 type="password"
-                placeholder="Minimum 8 characters"
+                placeholder="Minimum 12 characters with mixed types"
                 value={createFormData.password}
                 onChange={(e) => setCreateFormData({ ...createFormData, password: e.target.value })}
                 required
