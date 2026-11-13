@@ -123,6 +123,15 @@ def create_app() -> FastAPI:
     app.include_router(health_router, prefix=api_prefix)
     app.include_router(health_router)  # Direct root access /health
 
+    @app.get("/", tags=["Root"])
+    async def root_status():
+        return {
+            "status": "online",
+            "message": "State Audit AI Backend API",
+            "health": "/api/health",
+            "version": "1.0.0",
+        }
+
     return app
 
 
