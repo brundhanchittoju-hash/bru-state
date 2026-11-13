@@ -32,6 +32,7 @@ class Settings(BaseSettings):
 
     # Database
     DATABASE_URL: str = "sqlite:///./state_audit.db"
+    DIRECT_URL: Optional[str] = None
 
     # Security & JWT
     SECRET_KEY: Optional[str] = None

@@ -14,8 +14,9 @@ from app.models import Base
 # access to the values within the .ini file in use.
 config = context.config
 
-# Set sqlalchemy.url from our settings
-config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
+# Set sqlalchemy.url from our settings (prefers DIRECT_URL for migrations if configured)
+migration_db_url = getattr(settings, "DIRECT_URL", None) or settings.DATABASE_URL
+config.set_main_option("sqlalchemy.url", migration_db_url)
 
 target_metadata = Base.metadata
 
