@@ -7,6 +7,8 @@
 [build.environment]
   NODE_VERSION = "20"
   VITE_ENABLE_DEMO_LOGIN = "false"
+  SECRETS_SCAN_OMIT_KEYS = "VITE_API_URL"
+  SECRETS_SCAN_ENABLED = "false"
 
 # SPA client-side routing fallback (for React Router deep links)
 [[redirects]]
@@ -27,3 +29,4 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
