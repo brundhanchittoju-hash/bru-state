@@ -1,0 +1,33 @@
+# Netlify Configuration for State Audit System (Vite + React SPA)
+
+[build]
+  # Base directory for the frontend application
+  base = "frontend"
+  # Directory to publish (relative to base)
+  publish = "dist"
+  # Build command
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_ENABLE_DEMO_LOGIN = "false"
+
+# SPA client-side routing fallback (for React Router deep links)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security and cache headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

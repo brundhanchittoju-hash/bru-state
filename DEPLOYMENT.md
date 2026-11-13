@@ -146,3 +146,41 @@ server {
 }
 ```
 
+---
+
+## 5. Deploying the Frontend on Netlify
+
+Netlify hosts the static React Single Page Application (SPA), while the Python/FastAPI backend runs on a container platform (such as Render, Railway, Fly.io, Cloud Run, or a VPS).
+
+### Step 1: Connect Repository to Netlify
+1. Log in to [Netlify](https://app.netlify.com).
+2. Click **"Add new site"** > **"Import an existing project"**.
+3. Select **GitHub** and authorize access to `brundhanchittoju-hash/bru-state`.
+4. Netlify will auto-detect settings from `netlify.toml`:
+   - **Base directory:** `frontend`
+   - **Build command:** `npm run build`
+   - **Publish directory:** `frontend/dist` (or `dist` if base is set to `frontend`)
+
+### Step 2: Set Environment Variables in Netlify
+Go to **Site configuration** > **Environment variables** > **Add a variable**:
+
+| Variable | Value | Notes |
+| :--- | :--- | :--- |
+| `NODE_VERSION` | `20` | Sets Node.js build runtime. |
+| `VITE_ENABLE_DEMO_LOGIN` | `false` | Disables demo quick-login buttons on the public site. |
+| `VITE_API_URL` | `https://your-backend-domain.com/api` | Full URL to your deployed backend API. |
+
+> [!NOTE]
+> Vite embeds `VITE_*` variables at **build time**. If you update `VITE_API_URL` later, trigger a **"Clear cache and deploy site"** in Netlify.
+
+### Step 3: Configure Backend CORS
+On your deployed backend host, ensure the backend `.env` includes your Netlify domain in `CORS_ORIGINS`:
+```bash
+CORS_ORIGINS=["https://your-app-name.netlify.app","https://your-custom-domain.com"]
+PUBLIC_BASE_URL=https://your-app-name.netlify.app
+```
+
+### SPA Routing & Redirects
+The repository includes `netlify.toml` and `frontend/public/_redirects` (`/* /index.html 200`) so that React Router deep links (e.g. `/dashboard`, `/cases`, `/login`) resolve correctly without 404 errors.
+
+
