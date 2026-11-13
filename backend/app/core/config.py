@@ -49,6 +49,7 @@ class Settings(BaseSettings):
     SUPABASE_URL: Optional[str] = None
     NEXT_PUBLIC_SUPABASE_URL: Optional[str] = None
     SUPABASE_SERVICE_ROLE_KEY: Optional[str] = None
+    SUPABASE_SECRET_KEY: Optional[str] = None
     SUPABASE_PUBLISHABLE_KEY: Optional[str] = None
     NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: Optional[str] = None
     SUPABASE_STORAGE_BUCKET: str = "audit-documents"
@@ -128,8 +129,8 @@ class Settings(BaseSettings):
         if self.STORAGE_BACKEND == "supabase":
             if not self.SUPABASE_URL and self.NEXT_PUBLIC_SUPABASE_URL:
                 self.SUPABASE_URL = self.NEXT_PUBLIC_SUPABASE_URL
-            if not self.SUPABASE_SERVICE_ROLE_KEY and (self.SUPABASE_PUBLISHABLE_KEY or self.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY):
-                self.SUPABASE_SERVICE_ROLE_KEY = self.SUPABASE_PUBLISHABLE_KEY or self.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+            if not self.SUPABASE_SERVICE_ROLE_KEY and (self.SUPABASE_SECRET_KEY or self.SUPABASE_PUBLISHABLE_KEY or self.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY):
+                self.SUPABASE_SERVICE_ROLE_KEY = self.SUPABASE_SECRET_KEY or self.SUPABASE_PUBLISHABLE_KEY or self.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 
             if not self.SUPABASE_URL or not self.SUPABASE_URL.strip():
                 raise ValueError("SUPABASE_URL must be provided in backend/.env when STORAGE_BACKEND=supabase")
