@@ -46,7 +46,10 @@ class Settings(BaseSettings):
     MAX_UPLOAD_SIZE_BYTES: int = 25 * 1024 * 1024  # 25 MB
     STORAGE_BACKEND: str = "local"  # "local" or "supabase"
     SUPABASE_URL: Optional[str] = None
+    NEXT_PUBLIC_SUPABASE_URL: Optional[str] = None
     SUPABASE_SERVICE_ROLE_KEY: Optional[str] = None
+    SUPABASE_PUBLISHABLE_KEY: Optional[str] = None
+    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: Optional[str] = None
     SUPABASE_STORAGE_BUCKET: str = "audit-documents"
 
     # CORS
@@ -122,6 +125,11 @@ class Settings(BaseSettings):
         self.STORAGE_BACKEND = backend_choice
 
         if self.STORAGE_BACKEND == "supabase":
+            if not self.SUPABASE_URL and self.NEXT_PUBLIC_SUPABASE_URL:
+                self.SUPABASE_URL = self.NEXT_PUBLIC_SUPABASE_URL
+            if not self.SUPABASE_SERVICE_ROLE_KEY and (self.SUPABASE_PUBLISHABLE_KEY or self.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY):
+                self.SUPABASE_SERVICE_ROLE_KEY = self.SUPABASE_PUBLISHABLE_KEY or self.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+
             if not self.SUPABASE_URL or not self.SUPABASE_URL.strip():
                 raise ValueError("SUPABASE_URL must be provided in backend/.env when STORAGE_BACKEND=supabase")
             if not self.SUPABASE_SERVICE_ROLE_KEY or not self.SUPABASE_SERVICE_ROLE_KEY.strip():
